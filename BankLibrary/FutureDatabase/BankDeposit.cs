@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BankLibrary.FutureDatabase
 {
-    struct BankDeposit
+    class BankDeposit
     {
     }
 }
