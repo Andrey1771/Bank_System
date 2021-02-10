@@ -1,2 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BankLibrary.Client.ClientAbstract" Collapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Client\ClientAbstract.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BankLibrary.Client.LegalClient" Collapsed="true">
+    <Position X="3.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Client\LegalClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.Client.StandartClient" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Client\StandartClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.Client.VIPClient" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Client\VIPClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.Department.DepartmentAbstract" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAwABIAAABABAAAAAAgAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Department\Department.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BankLibrary.Department.LegalDepartment" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Department\LegalDepartment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.Department.StandartDepartment" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Department\StandartDepartment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.Department.VipDepartment" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Department\VipDepartment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.FutureDatabase.BankAccount" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAYAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAABBAAAAA=</HashCode>
+      <FileName>FutureDatabase\BankAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.FutureDatabase.BankCard" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgQAAAAAAAAEAAAAAAAgCAgAAAAAAAAA=</HashCode>
+      <FileName>FutureDatabase\BankCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.FutureDatabase.BankDeposit" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FutureDatabase\BankDeposit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.FutureDatabase.BankLoan" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FutureDatabase\BankLoan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BankLibrary.FutureDatabase.Database" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FutureDatabase\Database.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BankLibrary.Bank" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BankLibrary.Client.IClient" Collapsed="true">
+    <Position X="10.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Client\IClient.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BankLibrary.Department.IDepartment" Collapsed="true">
+    <Position X="14.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Department\IDepartment.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BankLibrary.FutureDatabase.IDatabase" Collapsed="true">
+    <Position X="12.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FutureDatabase\IDatabase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -2,76 +2,31 @@
 using System.Collections.Generic;
 using System.Text;
 using BankLibrary.Client;
+using BankLibrary.FutureDatabase.IdValues;
 
 namespace BankLibrary.FutureDatabase
 {
     class BankCard 
     {
-        static SortedSet<ulong> busyIdSortedSet;
-
-        ulong id;
-        public ulong ID { get { return id; }
-            set
-            {
-                if (!TryAddId(value))
-                    throw new Exception("Все плохо, newVal == uint.MaxValue");
-                id = value;
-            }
-        }
+        readonly static TimeSpan workingTime = TimeSpan.FromDays(365 * 4);
+        public CardId CardId { get; }
 
         public string CardholderName { get; }
         public DateTime ValidDate { get; }
         public int SecretNumber { get; }
+        public decimal Money { get; set; }
 
-
-        public BankCard(string aCardholderName, uint abim, uint individualNumber, int aSecretNumber, DateTime aValidDate = default(DateTime))
+        public BankCard(string aCardholderName, uint abim, int aSecretNumber, DateTime aValidDate = default(DateTime))
         {
             CardholderName = aCardholderName;
-            ID = abim * (ulong)Math.Pow(10, 6) + individualNumber;
+            CardId.ID = abim * (ulong)Math.Pow(10, 6) + CardId.GetUniqueIndividualNumber();
             SecretNumber = aSecretNumber;
             ValidDate = aValidDate.Date;
-            if (aValidDate == default(DateTime))
+            if (ValidDate.Date == default(DateTime).Date)
             {
-                ValidDate = DateTime.Now.Date;
+                ValidDate = DateTime.Now.Date + workingTime;
             }
             
-        }
-
-        public bool TryAddId(ulong id)
-        {
-            if (!busyIdSortedSet.Add(id))//SortedSet.Add - O(log(k))
-            {
-                var newId = ulong.MinValue;
-                while (!busyIdSortedSet.Add(newId))//В худшем O(n * log(n)) 
-                {
-                    if (newId == ulong.MaxValue)
-                    {
-                        return false;
-                    }
-                    ++newId;
-                }
-            }
-            return true;
-        }
-
-        public static uint GetUniqueIndividualNumber(uint bim)
-        {
-            var newIndividualNumber = uint.MinValue;
-            while (!busyIdSortedSet.Add(newIndividualNumber))//В худшем O(n * log(n))
-            {
-                if (newIndividualNumber == 100_000_000)
-                {
-                    throw new Exception("Все ключи заняты, newIndividualNumber == 100_000_000");//Добавить тесты
-                }
-                ++newIndividualNumber;
-            }
-
-            return newIndividualNumber;
-        }
-
-        ~BankCard()
-        {
-            busyIdSortedSet.Remove(ID); ;
         }
     }
 }
