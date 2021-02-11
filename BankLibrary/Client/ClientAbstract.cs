@@ -6,5 +6,6 @@ namespace BankLibrary.Client
 {
     abstract class ClientAbstract : IClient
     {
+
     }
 }

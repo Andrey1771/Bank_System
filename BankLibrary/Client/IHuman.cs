@@ -4,16 +4,12 @@ using System.Text;
 
 namespace BankLibrary.Client
 {
-    interface IClient
+    interface IHuman
     {
         string Name { get; set; }
         DateTime DateBirth { get; set; }
         string[] JobTitles { get; set; }
         decimal MonthlyIncome { get; set; }
 
-        /*public static T GetClient<T>()
-        {
-
-        }*/
     }
 }

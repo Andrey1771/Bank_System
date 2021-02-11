@@ -14,6 +14,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Client\LegalClient.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="BankLibrary.Client.StandartClient" Collapsed="true">
     <Position X="6" Y="4.75" Width="1.5" />
@@ -21,6 +22,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Client\StandartClient.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="BankLibrary.Client.VIPClient" Collapsed="true">
     <Position X="8.25" Y="4.75" Width="1.5" />
@@ -28,6 +30,7 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Client\VIPClient.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="BankLibrary.Department.DepartmentAbstract" Collapsed="true">
     <Position X="6" Y="0.5" Width="1.5" />
@@ -61,28 +64,29 @@
   <Class Name="BankLibrary.FutureDatabase.BankAccount" Collapsed="true">
     <Position X="12.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAYAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAABBAAAAA=</HashCode>
+      <HashCode>AAAYIAAAAAAAQAAAAAgAAAQAAAAAABAAAAAABBAAAAA=</HashCode>
       <FileName>FutureDatabase\BankAccount.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="BankLibrary.FutureDatabase.BankCard" Collapsed="true">
     <Position X="14.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgQAAAAAAAAEAAAAAAAgCAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAgAAAAAAAAAEAAAAAAAAAAgAAAAggAAA=</HashCode>
       <FileName>FutureDatabase\BankCard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BankLibrary.FutureDatabase.BankDeposit" Collapsed="true">
     <Position X="10.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEQAAAAABAAAAAQAAAAAAAAAgAAAAAAACAgAAAAAAA=</HashCode>
       <FileName>FutureDatabase\BankDeposit.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BankLibrary.FutureDatabase.BankLoan" Collapsed="true">
     <Position X="12.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEQAAAAAAAAAAAAAAAAAAAACgAAAAgAAABgAAAAAAA=</HashCode>
       <FileName>FutureDatabase\BankLoan.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -104,7 +108,7 @@
   <Interface Name="BankLibrary.Client.IClient" Collapsed="true">
     <Position X="10.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Client\IClient.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -118,7 +122,7 @@
   <Interface Name="BankLibrary.FutureDatabase.IDatabase" Collapsed="true">
     <Position X="12.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQIAAAAAAAQAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>FutureDatabase\IDatabase.cs</FileName>
     </TypeIdentifier>
   </Interface>

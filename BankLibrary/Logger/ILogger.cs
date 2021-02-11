@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.Client
+namespace BankLibrary.Logger
 {
-    class LegalClient : ClientAbstract, IHuman
+    interface ILogger
     {
-
     }
 }

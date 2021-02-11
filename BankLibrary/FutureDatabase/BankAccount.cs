@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using BankLibrary.Client;
+
 namespace BankLibrary.FutureDatabase
 {
-    class BankAccount
+    class BankAccount : IBankAccount
     {
         readonly IClient client;
         List<BankCard> bankCards;
@@ -42,11 +43,12 @@ namespace BankLibrary.FutureDatabase
             bankDeposits.Add(newDeposit);
         }
 
-        public void AddLoans(decimal procentDeposit,
+        public void AddLoan(decimal procentDeposit,
             DateTime closingDate, DateTime openingDate = default(DateTime))
         {
             var newLoan = new BankLoan(client.Name, procentDeposit, closingDate, openingDate);
             bankLoans.Add(newLoan);
         }
+
     }
 }

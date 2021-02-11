@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.Client
+namespace BankLibrary.FutureDatabase
 {
-    class LegalClient : ClientAbstract, IHuman
+    interface IBankAccount
     {
-
     }
 }

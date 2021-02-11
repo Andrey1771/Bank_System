@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BankLibrary.Client
 {
-    class VIPClient : ClientAbstract
+    class VIPClient : ClientAbstract, IOrganization
     {
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BankLibrary.Client
 {
-    class StandartClient : ClientAbstract
+    class StandartClient : ClientAbstract, IHuman
     {
     }
 }
