@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BankLibrary.Client;
 
-namespace BankLibrary.Recording
+namespace BankLibrary.DI
 {
-    interface IRecord
+    public interface IRecord
     {
         IOperation Operation { get; set; }
-        DateTime DateOperation { get; set; }
+        DateTime DateRecord { get; set; }
         IClient Client { get; set; }
     }
 

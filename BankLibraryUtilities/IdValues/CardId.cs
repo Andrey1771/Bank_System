@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.FutureDatabase.IdValues
+namespace BankLibrary.Utilities.IdValues
 {
-    class CardId : ValueID
+    public class CardId : ValueID
     {
         const uint maxIndividualNumber = 100_000_000;
         private static SortedSet<ulong> bussyIdSortedSet;

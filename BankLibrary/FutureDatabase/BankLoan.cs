@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BankLibrary.FutureDatabase.IdValues;
+using BankLibrary.Utilities.IdValues;
+using BankLibrary.DI;
 
 namespace BankLibrary.FutureDatabase
 {
-    class BankLoan
+    class BankLoan : ILoan
     {
 
         public LoanId LoanId { get; set; }

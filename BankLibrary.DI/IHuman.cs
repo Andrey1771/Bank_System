@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.Client
+namespace BankLibrary.DI
 {
-    interface IHuman
+    public interface IHuman
     {
         string Name { get; set; }
         DateTime DateBirth { get; set; }

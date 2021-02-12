@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.Recording
+namespace BankLibrary.DI
 {
-    interface IOperation
+    public interface IOperation
     {
         string Name { get; set; }
         Dictionary<string, string> NameAndDataForAction { get; set; }
+
     }
 }

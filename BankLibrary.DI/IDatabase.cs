@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.FutureDatabase
+namespace BankLibrary.DI
 {
-    interface IDatabase
+    public interface IDatabase
     {
         string Name { get; }
         decimal Money { get; }

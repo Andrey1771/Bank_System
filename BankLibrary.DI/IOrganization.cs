@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.Client
+namespace BankLibrary.DI
 {
-    interface IOrganization
+    public interface IOrganization
     {
         string Name { get; set; }
         DateTime FoundationDate { get; set; }

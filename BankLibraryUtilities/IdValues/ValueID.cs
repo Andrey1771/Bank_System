@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.FutureDatabase.IdValues
+namespace BankLibrary.Utilities.IdValues
 {
-    abstract class ValueID //: IIDValue
+    public abstract class ValueID //: IIDValue
     {
         //protected abstract SortedSet<ulong> BusyIdSortedSet { get; set; }
         protected abstract ref SortedSet<ulong> GetRefBusyIdSortedSet();

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.Department
+namespace BankLibrary.DI
 {
-    interface IDepartment
+    public interface IWorker
     {
+
     }
 }

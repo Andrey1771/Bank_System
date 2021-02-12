@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using BankLibrary.Client;
+using BankLibrary.DI;
+using BankLibrary.Utilities.IdValues;
 
 namespace BankLibrary.FutureDatabase
 {
     class BankAccount : IBankAccount
     {
         readonly IClient client;
-        List<BankCard> bankCards;
-        List<BankDeposit> bankDeposits;
-        List<BankLoan> bankLoans;
+        List<ICard> bankCards;
+        List<IDeposit> bankDeposits;
+        List<ILoan> bankLoans;
 
         public string Name { get { return client.Name; } }
         public decimal Money
@@ -30,7 +32,23 @@ namespace BankLibrary.FutureDatabase
             }
         }
 
-        public void AddCard(uint bim, int secretNumber, DateTime validDate = default(DateTime))
+
+        public void AddCard(ICard card)
+        {
+            bankCards.Add(card);
+        }
+
+        public void AddDeposit(IDeposit deposit)
+        {
+            bankDeposits.Add(deposit);
+        }
+
+        public void AddLoan(ILoan loan)
+        {
+            bankLoans.Add(loan);
+        }
+
+       /* public void AddCard(uint bim, int secretNumber, DateTime validDate = default(DateTime))
         {
             var newCard = new BankCard(client.Name, bim, secretNumber, validDate);
             bankCards.Add(newCard);
@@ -48,7 +66,7 @@ namespace BankLibrary.FutureDatabase
         {
             var newLoan = new BankLoan(client.Name, procentDeposit, closingDate, openingDate);
             bankLoans.Add(newLoan);
-        }
+        }*/
 
     }
 }

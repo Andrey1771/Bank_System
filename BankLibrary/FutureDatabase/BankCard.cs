@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using BankLibrary.Client;
-using BankLibrary.FutureDatabase.IdValues;
+using BankLibrary.Utilities.IdValues;
+using BankLibrary.DI;
 
 namespace BankLibrary.FutureDatabase
 {
-    class BankCard 
+    class BankCard : ICard
     {
         readonly static TimeSpan workingTime = TimeSpan.FromDays(365 * 4);
         public CardId CardId { get; }
