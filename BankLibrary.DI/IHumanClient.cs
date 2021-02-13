@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BankLibrary.DI
 {
-    public interface IHuman
+    public interface IHumanClient : IClient
     {
         string Name { get; set; }
         DateTime DateBirth { get; set; }

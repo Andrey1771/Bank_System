@@ -4,48 +4,22 @@ using System.Text;
 using BankLibrary.Client;
 using BankLibrary.DI;
 using BankLibrary.Utilities.IdValues;
+using BankLibrary.DI.BankAccounts;
 
 namespace BankLibrary.FutureDatabase
 {
-    class BankAccount : IBankAccount
+    abstract class BankAccount : IBankAccount
     {
-        readonly IClient client;
-        List<ICard> bankCards;
-        List<IDeposit> bankDeposits;
-        List<ILoan> bankLoans;
+        protected readonly IClient client;
 
         public string Name { get { return client.Name; } }
-        public decimal Money
-        {
-            get
-            {
-                decimal allMoney = 0;
-                foreach(var card in bankCards)
-                {
-                    allMoney += card.Money;
-                }
-                foreach (var deposit in bankDeposits)
-                {
-                    allMoney += deposit.Money;
-                }
-                return allMoney;
-            }
-        }
 
+        public abstract decimal Money { get; }
+        public abstract decimal Debt { get; }
 
-        public void AddCard(ICard card)
+        public BankAccount(IClient aclient)
         {
-            bankCards.Add(card);
-        }
-
-        public void AddDeposit(IDeposit deposit)
-        {
-            bankDeposits.Add(deposit);
-        }
-
-        public void AddLoan(ILoan loan)
-        {
-            bankLoans.Add(loan);
+            client = aclient;
         }
 
        /* public void AddCard(uint bim, int secretNumber, DateTime validDate = default(DateTime))

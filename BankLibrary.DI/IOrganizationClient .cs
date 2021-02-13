@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BankLibrary.DI
 {
-    public interface IOrganization
+    public interface IOrganizationClient : IClient
     {
         string Name { get; set; }
         DateTime FoundationDate { get; set; }

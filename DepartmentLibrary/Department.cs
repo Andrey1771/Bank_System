@@ -4,7 +4,7 @@ using BankLibrary.DI;
 
 namespace DepartmentLibrary
 {
-    public class Department : IDepartment
+    public abstract class Department : IDepartment
     {
         static SortedSet<string> busyNameSortedSet;
         string name;
@@ -25,7 +25,7 @@ namespace DepartmentLibrary
 
         //List<Person> persons;
         List<Department> departments;
-        public IEnumerable<IDepartment> Departments { get { return departments; } set { departments = value; } }
+        public IEnumerable<IDepartment> Departments { get { return departments; } set { departments = (List<Department>)value; } }//TODO
 
         static Department()
         {

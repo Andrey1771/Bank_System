@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BankLibrary.DI\BankLibrary.DI.csproj" />
     <ProjectReference Include="..\BankLibraryUtilities\BankLibrary.Utilities.csproj" />
+    <ProjectReference Include="..\DepartmentLibrary\DepartmentLibrary.csproj" />
   </ItemGroup>
 
 </Project>

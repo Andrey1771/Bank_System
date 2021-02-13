@@ -2,52 +2,50 @@
 using System.Collections.Generic;
 using System.Text;
 using BankLibrary.DI;
+using BankLibrary.DI.BankAccounts;
 
-namespace BankLibrary.Department
+namespace BankLibrary.Departments
 {
-
-    //Template pattern
-    abstract class DepartmentAbstract : IDepartment
+    public abstract class Department : IDepartment
     {
-        // Шаблонный метод определяет скелет алгоритма.
-        public void TemplateMethod()
+        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ICollection<IBankAccount> Accounts { get; set; }//TOOD реализовать свою коллекцию?
+
+        public bool AddClientAccount(IClient client)
         {
-            this.BaseOperation1();
-            this.RequiredOperations1();
-            this.BaseOperation2();
-            this.Hook1();
-            this.RequiredOperation2();
-            this.BaseOperation3();
-            this.Hook2();
+            var tempAccount = client.MakeAccount();
+            if (!Accounts.Contains(tempAccount))
+                Accounts.Add(tempAccount);
+            else
+                return false;
+            return true;
         }
 
-        // Эти операции уже имеют реализации.
-        protected void BaseOperation1()
+        public bool FindClientAccount(IClient client, out IBankAccount findedAccount)
         {
-            Console.WriteLine("AbstractClass says: I am doing the bulk of the work");
+            findedAccount = null;
+            foreach (var account in Accounts)
+            {
+                if(account == client)
+                {
+                    findedAccount = account;//TODO Fix that
+                    return true;
+                }
+            }
+            return false;
         }
 
-        protected void BaseOperation2()
+        public bool RemoveClientAccount(IClient client)
         {
-            Console.WriteLine("AbstractClass says: But I let subclasses override some operations");
+            var tempAccount = client.MakeAccount();
+            if (Accounts.Contains(tempAccount))
+                Accounts.Remove(tempAccount);
+            else
+                return false;
+            return true;
         }
 
-        protected void BaseOperation3()
-        {
-            Console.WriteLine("AbstractClass says: But I am doing the bulk of the work anyway");
-        }
 
-        // А эти операции должны быть реализованы в подклассах.
-        protected abstract void RequiredOperations1();
 
-        protected abstract void RequiredOperation2();
-
-        // Это «хуки». Подклассы могут переопределять их, но это не обязательно,
-        // поскольку у хуков уже есть стандартная (но пустая) реализация. Хуки
-        // предоставляют дополнительные точки расширения в некоторых критических
-        // местах алгоритма.
-        protected virtual void Hook1() { }
-
-        protected virtual void Hook2() { }
     }
 }

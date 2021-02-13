@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BankLibrary.DI
+namespace BankLibrary.DI.BankAccounts
 {
-    public interface IBankAccount
+    public interface IOrganizationAccount : IBankAccount
     {
-        string Name { get; }
-        decimal Money { get; }
-
-        void AddCard(ICard card);
         void AddDeposit(IDeposit deposit);
         void AddLoan(ILoan loan);
 
