@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SimpleInjector" Version="5.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BankAccountsObjects\BankLibrary.BankAccountsObjects.csproj" />
+    <ProjectReference Include="..\BankLibrary.Accounts\BankLibrary.Accounts.csproj" />
+    <ProjectReference Include="..\BankLibrary.Client\BankLibrary.Client.csproj" />
+    <ProjectReference Include="..\BankLibrary.Departments\BankLibrary.Departments.csproj" />
+    <ProjectReference Include="..\BankLibrary.DI\BankLibrary.DI.csproj" />
+    <ProjectReference Include="..\BankLibrary.FutureDatabase\BankLibrary.FutureDatabase.csproj" />
+    <ProjectReference Include="..\BankLibrary.Logger\BankLibrary.Logger.csproj" />
+    <ProjectReference Include="..\BankLibraryUtilities\BankLibrary.Utilities.csproj" />
+    <ProjectReference Include="..\JSONSaveLoader\BankLibrary.JSONSaveLoader.csproj" />
+  </ItemGroup>
+
+</Project>

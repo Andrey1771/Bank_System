@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BankLibraryUtilities\BankLibrary.Utilities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Новая папка\" />
+    <ProjectReference Include="..\BankLibrary.DI\BankLibrary.DI.csproj" />
   </ItemGroup>
 
 </Project>
