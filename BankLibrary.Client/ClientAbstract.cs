@@ -7,7 +7,7 @@ using BankLibrary.DI.Client;
 
 namespace BankLibrary.Client
 {
-    abstract class ClientAbstract : IClient
+    public abstract class ClientAbstract : IClient
     {
         public string Name { get; set; }
 

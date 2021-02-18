@@ -19,6 +19,11 @@ namespace BankLibrary.Departments
 
             
         }
+        public LegalDepartment(string aName = "LegalDepartment") : this(new List<IBankAccount>(), aName)
+        {
+
+        }
+
 
         public void AddDeposit(IDeposit deposit, IClient client)
         {

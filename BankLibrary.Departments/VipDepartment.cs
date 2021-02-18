@@ -14,5 +14,10 @@ namespace BankLibrary.Departments
         {
 
         }
+
+        public VipDepartment(string aName = "VipDepartment") : this(new List<IBankAccount>(), aName)
+        {
+
+        }
     }
 }

@@ -6,7 +6,6 @@ namespace BankLibrary.DI.Client
 {
     public interface IOrganizationClient : IClient
     {
-        string Name { get; set; }
         DateTime FoundationDate { get; set; }
         decimal Income { get; set; } 
         string NameOwner { get; set; }

@@ -7,9 +7,7 @@ namespace BankLibrary.DI.FutureDatabase
 {
     public interface IDeposit
     {
-        DepositId BankId { get; }
-        DateTime OpeningDate { get; }
-        decimal Money { get; set; }
+       z
 
     }
 }

@@ -8,11 +8,11 @@ using BankLibrary.DI.Client;
 
 namespace BankLibrary.Client
 {
-    class LegalClient : ClientAbstract, IHumanClient
+    public class LegalClient : ClientAbstract, IOrganizationClient
     {
-        public DateTime DateBirth { get; set; }
-        public string[] JobTitles { get; set; }
-        public decimal MonthlyIncome { get; set; }
+        public DateTime FoundationDate { get; set; }
+        public decimal Income { get; set; }
+        public string NameOwner { get; set; }
 
         public override IBankAccount MakeAccount()
         {

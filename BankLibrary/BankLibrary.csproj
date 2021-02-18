@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Logger\" />
-    <Folder Include="Operations\" />
-    <Folder Include="Recording\" />
-    <Folder Include="SaverAndLoader\" />
+    <Compile Remove="Operations\**" />
+    <Compile Remove="Recording\**" />
+    <EmbeddedResource Remove="Operations\**" />
+    <EmbeddedResource Remove="Recording\**" />
+    <None Remove="Operations\**" />
+    <None Remove="Recording\**" />
   </ItemGroup>
 
   <ItemGroup>
