@@ -8,7 +8,7 @@ using BankLibrary.DI.Client;
 
 namespace BankLibrary.Client
 {
-    public class VIPClient : ClientAbstract, IVIPClient
+    public class VIPClient : ClientAbstract, IVipClient
     {
         public DateTime DateBirth { get; set; }
         public string[] JobTitles { get; set; }

@@ -42,7 +42,7 @@ namespace BankLibrary.Settings
 			Container.Register<IVipDepartment, VipDepartment>(Lifestyle.Transient);
 			Container.Register<IOrganizationClient, LegalClient>(Lifestyle.Transient);
 			Container.Register<IStandartClient, StandartClient>(Lifestyle.Transient);
-			Container.Register<IVIPClient, VIPClient>(Lifestyle.Transient);
+			Container.Register<IVipClient, VIPClient>(Lifestyle.Transient);
 
 			//Container.Register<IHumanDepartment>(Lifestyle.Transient);
 			//Container.Register<>(Lifestyle.Transient);

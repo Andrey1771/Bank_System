@@ -9,12 +9,12 @@ using BankLibrary.DI.FutureDatabase;
 using System.Collections.Generic;
 
 
-using BankLibrary.BankAccountsObjects;//Нарушает паттерн temp
-
+using BankLibrary.BankAccountsObjects;//Нарушает DI паттерн temp
+using BankLibrary.DI.Logger;
 
 namespace BankLibrary
 {
-    public class Bank
+    public class Bank : IBank
     {
 		#region DI - Внедрение зависимости
 		private static Configuration _configuration;
@@ -69,15 +69,15 @@ namespace BankLibrary
 			return standartClient;
 		}
 
-		private static IVIPClient CreateVIPClient(string name, DateTime dateBirth, string[] jobTitles, decimal monthlyIncome)
+		private static IVipClient CreateVIPClient(string name, DateTime dateBirth, string[] jobTitles, decimal monthlyIncome)
 		{
-			var vIPClient = _configuration.Container.GetInstance<IVIPClient>();
-			vIPClient.Name = name;///TODO Реализовать фабрику 
-			vIPClient.DateBirth = dateBirth;
-			vIPClient.JobTitles = jobTitles;
-			vIPClient.MonthlyIncome = monthlyIncome;
+			var vipClient = _configuration.Container.GetInstance<IVipClient>();
+			vipClient.Name = name;///TODO Реализовать фабрику 
+			vipClient.DateBirth = dateBirth;
+			vipClient.JobTitles = jobTitles;
+			vipClient.MonthlyIncome = monthlyIncome;
 
-			return vIPClient;
+			return vipClient;
 		}
 		//CreateClients
 
@@ -97,18 +97,77 @@ namespace BankLibrary
 		{
 			return new BankLoan(ownerName, procentLoan, closingDate, openingDate);
 		}
-		//CreateBankAccountObjects
-		#endregion
+		//CreateBankAccountObjects temp
 
-		ILegalDepartment legalDepartment;
+		//CreateLogger
+		private static ILogger CreateLogger(string pathToFolderLogs)
+		{
+			var logger = _configuration.Container.GetInstance<ILogger>();
+			logger.FileController = CreateFileControllerLogger();
+			logger.PathToFolder = pathToFolderLogs;
+			return logger;
+		}
+		//CreateLogger
+
+		//CreateFileController
+		private static IFileController<IRecord> CreateFileControllerLogger()
+		{
+			var fileController = _configuration.Container.GetInstance<IFileController<IRecord>>();
+			return fileController;
+		}
+		//CreateFileController
+
+		public IClient GetClient(uint id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IBankAccount GetAccount(IClient client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddCardToClientInDepartment(ICard card, IClient client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddLoanToClientInDepartment(ILoan loan, IClient client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddDepositToClientInDepartment(IDeposit deposit, IClient client)
+        {
+            throw new NotImplementedException();
+        }
+
+        //CreateBankAccountObjects
+        #endregion
+
+        ILegalDepartment legalDepartment;
 		IStandartDepartment standartDepartment;
 		IVipDepartment vipDepartment;
 
-		public Bank()
+        public ICollection<IClient> Clients => throw new NotImplementedException();
+
+        public ICollection<IBankAccount> Accounts => throw new NotImplementedException();
+
+        public ICollection<ILoan> Loans => throw new NotImplementedException();
+
+        public ICollection<IDeposit> Deposits => throw new NotImplementedException();
+
+        public ICollection<ICard> Cards => throw new NotImplementedException();
+
+        public ILogger Logger { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        //public IFileController FileController { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public Bank(string pathToSaveLogs)
         {
 			legalDepartment = CreateLegalDepartment();
 			standartDepartment = CreateStandartDepartment();
 			vipDepartment = CreateVipDepartment();
+			Logger = CreateLogger(pathToSaveLogs);
 		}
 	}
 }

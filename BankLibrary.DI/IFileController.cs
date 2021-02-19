@@ -4,9 +4,9 @@ using System.Text;
 
 namespace BankLibrary.DI
 {
-    public interface IFileController
+    public interface IFileController <T>
     {
-        void Save(ICollection<IOperation> data, string path);
-        ICollection<IOperation> Load(string path);
+        void Save(ICollection<T> data, string path);
+        ICollection<T> Load(string path);
     }
 }

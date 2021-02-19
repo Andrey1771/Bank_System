@@ -2,31 +2,31 @@
 using System.Collections.Generic;
 using System.Text;
 using BankLibrary.DI;
-
+using BankLibrary.DI.Logger;
 
 namespace BankLibrary.Logger
 {
     public class Logger : ILogger
     {
-        public string PathToFolder { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string NameFile { get; set; }
+        public string PathToFolder { get; set; }//TODO Добавить проверку на существования папки
+        public ICollection<IRecord> Records { get; private set; }
 
-        public IEnumerable<IRecord> records => throw new NotImplementedException();
-
-        public IFileController FileController { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IFileController<IRecord> FileController { get; set; }
 
         public void AddRecord(IRecord record)
         {
-            throw new NotImplementedException();
+            Records.Add(record);//TODO добавить проверки или перенести в авто
         }
 
-        public void LoadLogs(string nameFile)
+        public void LoadLogs()
         {
-            throw new NotImplementedException();
+            Records = FileController.Load($@"{PathToFolder}\{NameFile}");
         }
 
         public void SaveLogs()
         {
-            throw new NotImplementedException();
+            FileController.Save(Records, $@"{PathToFolder}\{NameFile}");
         }
     }
 }

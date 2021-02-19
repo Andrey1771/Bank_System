@@ -5,15 +5,9 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankLibrary", "BankLibrary.csproj", "{8726D1C2-DF72-44C7-9691-B8FA24EFE5F7}"
 	ProjectSection(ProjectDependencies) = postProject
-		{48B71A41-83B9-42A3-A942-F5E0D304FC21} = {48B71A41-83B9-42A3-A942-F5E0D304FC21}
 		{E2F8208C-2B6A-48D1-8ACA-1DE170AC99F8} = {E2F8208C-2B6A-48D1-8ACA-1DE170AC99F8}
 		{ECC45EFB-C130-4F58-8D57-10619C5C4407} = {ECC45EFB-C130-4F58-8D57-10619C5C4407}
 		{D888B2FD-7D5D-444E-B41B-0E7C88B9323F} = {D888B2FD-7D5D-444E-B41B-0E7C88B9323F}
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DepartmentLibrary", "..\DepartmentLibrary\DepartmentLibrary.csproj", "{48B71A41-83B9-42A3-A942-F5E0D304FC21}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E2F8208C-2B6A-48D1-8ACA-1DE170AC99F8} = {E2F8208C-2B6A-48D1-8ACA-1DE170AC99F8}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankLibrary.DI", "..\BankLibrary.DI\BankLibrary.DI.csproj", "{E2F8208C-2B6A-48D1-8ACA-1DE170AC99F8}"
@@ -35,9 +29,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankLibrary.Logger", "..\Ba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankLibrary.JSONSaveLoader", "..\JSONSaveLoader\BankLibrary.JSONSaveLoader.csproj", "{B46FECFC-69AF-4CE9-B3B6-362F2125F892}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankLibrary.Accounts", "..\BankLibrary.Accounts\BankLibrary.Accounts.csproj", "{8F23AAFB-AA5D-4FD6-AEE5-A8D3762C5344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankLibrary.Accounts", "..\BankLibrary.Accounts\BankLibrary.Accounts.csproj", "{8F23AAFB-AA5D-4FD6-AEE5-A8D3762C5344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankLibrary.BankAccountsObjects", "..\BankAccountsObjects\BankLibrary.BankAccountsObjects.csproj", "{02C8EC0F-CFCC-4648-B3D7-FB8A83BCB463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankLibrary.BankAccountsObjects", "..\BankAccountsObjects\BankLibrary.BankAccountsObjects.csproj", "{02C8EC0F-CFCC-4648-B3D7-FB8A83BCB463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientBankTerminalWPF", "..\ClientBankTerminalWPF\ClientBankTerminalWPF.csproj", "{67568F48-CE8D-49C1-9E08-7F7A812B9F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffBankTerminalWPF", "..\StaffBankTerminalWPF\StaffBankTerminalWPF.csproj", "{FE2B1985-FBBD-4D82-A382-E39772D2D5F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +47,6 @@ Global
 		{8726D1C2-DF72-44C7-9691-B8FA24EFE5F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8726D1C2-DF72-44C7-9691-B8FA24EFE5F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8726D1C2-DF72-44C7-9691-B8FA24EFE5F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48B71A41-83B9-42A3-A942-F5E0D304FC21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48B71A41-83B9-42A3-A942-F5E0D304FC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48B71A41-83B9-42A3-A942-F5E0D304FC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48B71A41-83B9-42A3-A942-F5E0D304FC21}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2F8208C-2B6A-48D1-8ACA-1DE170AC99F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2F8208C-2B6A-48D1-8ACA-1DE170AC99F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2F8208C-2B6A-48D1-8ACA-1DE170AC99F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,6 +87,14 @@ Global
 		{02C8EC0F-CFCC-4648-B3D7-FB8A83BCB463}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02C8EC0F-CFCC-4648-B3D7-FB8A83BCB463}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02C8EC0F-CFCC-4648-B3D7-FB8A83BCB463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67568F48-CE8D-49C1-9E08-7F7A812B9F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67568F48-CE8D-49C1-9E08-7F7A812B9F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67568F48-CE8D-49C1-9E08-7F7A812B9F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67568F48-CE8D-49C1-9E08-7F7A812B9F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE2B1985-FBBD-4D82-A382-E39772D2D5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE2B1985-FBBD-4D82-A382-E39772D2D5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE2B1985-FBBD-4D82-A382-E39772D2D5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE2B1985-FBBD-4D82-A382-E39772D2D5F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
