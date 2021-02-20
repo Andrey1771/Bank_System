@@ -6,19 +6,19 @@ using BankLibrary.DI;
 
 namespace BankLibrary.JSONSaveLoader
 {
-    public class JSONSaveLoader : IFileController
+    public class JSONSaveLoader<T> : IFileController<T>
     {
-        public ICollection<IOperation> Load(string path)
+        public ICollection<T> Load(string path)
         {
             return Deserialize(path);
         }
 
-        public void Save(ICollection<IOperation> data, string path)
+        public void Save(ICollection<T> data, string path)
         {
             Serialize(data, path);
         }
 
-        private void Serialize(ICollection<IOperation> data, string path)
+        private void Serialize(ICollection<T> data, string path)
         {
             Newtonsoft.Json.JsonSerializer serializer = new Newtonsoft.Json.JsonSerializer();
             serializer.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
@@ -28,11 +28,11 @@ namespace BankLibrary.JSONSaveLoader
             using (StreamWriter sw = new StreamWriter(path))
             using (Newtonsoft.Json.JsonWriter writer = new Newtonsoft.Json.JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, data, typeof(ICollection<IOperation>));
+                serializer.Serialize(writer, data, typeof(ICollection<T>));
             }
         }
 
-        private ICollection<IOperation> Deserialize(string path)
+        private ICollection<T> Deserialize(string path)
         {
             if (File.Exists(path))
             {
@@ -41,9 +41,11 @@ namespace BankLibrary.JSONSaveLoader
                     TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto,
                     NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore
                 };
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<ICollection<IOperation>>(File.ReadAllText(path), settings);
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<ICollection<T>>(File.ReadAllText(path), settings);
             }
-            return new List<IOperation>();//TODO fix that
+            return new List<T>();//TODO fix that
         }
+
+        
     }
 }

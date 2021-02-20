@@ -13,6 +13,7 @@ using BankLibrary.DI.FutureDatabase;
 using BankLibrary.BankAccountsObjects;
 using BankLibrary.DI.Client;
 using BankLibrary.Client;
+using BankLibrary.DI.Logger;
 
 namespace BankLibrary.Settings
 {
@@ -36,14 +37,13 @@ namespace BankLibrary.Settings
 			Container.Register<IDeposit, BankDeposit>(Lifestyle.Transient);
 			Container.Register<ILoan, BankLoan>(Lifestyle.Transient);
 			Container.Register<ILogger, Logger.Logger>(Lifestyle.Singleton);///TODO fix that
-			Container.Register<IFileController, JSONSaveLoader.JSONSaveLoader>(Lifestyle.Singleton);///TODO fix that
+			Container.Register<IFileController<IRecord>, JSONSaveLoader.JSONSaveLoader<IRecord>>(Lifestyle.Singleton);///TODO fix that
 			Container.Register<ILegalDepartment, LegalDepartment>(Lifestyle.Transient);
 			Container.Register<IStandartDepartment, StandartDepartment>(Lifestyle.Transient);
 			Container.Register<IVipDepartment, VipDepartment>(Lifestyle.Transient);
 			Container.Register<IOrganizationClient, LegalClient>(Lifestyle.Transient);
 			Container.Register<IStandartClient, StandartClient>(Lifestyle.Transient);
 			Container.Register<IVipClient, VIPClient>(Lifestyle.Transient);
-
 			//Container.Register<IHumanDepartment>(Lifestyle.Transient);
 			//Container.Register<>(Lifestyle.Transient);
 			//Container.Register<IData<IBook>, BookSqlData>(Lifestyle.Singleton);

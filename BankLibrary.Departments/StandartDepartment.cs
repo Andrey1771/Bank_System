@@ -10,7 +10,7 @@ namespace BankLibrary.Departments
 {
     public class StandartDepartment : HumanDepartment, IStandartDepartment
     {
-        public StandartDepartment(List<IBankAccount> bankAccounts = null, string aName = "StandartDepartment") : base(bankAccounts ??= new List<IBankAccount>(), aName)
+        public StandartDepartment(List<IBankAccount> bankAccounts = null, string aName = "StandartDepartment") : base(bankAccounts == null ? new List<IBankAccount>() : bankAccounts, aName)
         {
 
         }

@@ -10,16 +10,16 @@ namespace BankLibrary.Accounts
 {
     public abstract class BankAccount : IBankAccount
     {
-        protected readonly IClient client;
+        public IClient Client { get; set; }
 
-        public string Name { get { return client.Name; } }
+        public string Name { get { return Client.Name; } }
 
         public abstract decimal Money { get; }
         public abstract decimal Debt { get; }
 
         public BankAccount(IClient aclient)
         {
-            client = aclient;
+            Client = aclient;
         }
 
        /* public void AddCard(uint bim, int secretNumber, DateTime validDate = default(DateTime))

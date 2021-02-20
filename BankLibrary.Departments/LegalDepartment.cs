@@ -14,7 +14,7 @@ namespace BankLibrary.Departments
     public class LegalDepartment : Department, ILegalDepartment
     {
 
-        public LegalDepartment(List<IBankAccount> bankAccounts = null, string aName = "LegalDepartment") : base(bankAccounts ??= new List<IBankAccount>(), aName)
+        public LegalDepartment(List<IBankAccount> bankAccounts = null, string aName = "LegalDepartment") : base(bankAccounts == null ? new List<IBankAccount>() : bankAccounts, aName)
         {
 
             

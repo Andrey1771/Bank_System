@@ -9,7 +9,7 @@ namespace BankLibrary.BankAccountsObjects
 {
     public class BankDeposit : IDeposit
     {
-        public DepositId BankId { get; }
+        public DepositId DepositId { get; set; }
 
         public string OwnerName { get; }
         public DateTime OpeningDate { get; }
@@ -36,7 +36,7 @@ namespace BankLibrary.BankAccountsObjects
         public BankDeposit(string aOwnerName, decimal aprocentDeposit, DateTime aClosingDate, DateTime aOpeningDate = default(DateTime))
         {
             OwnerName = aOwnerName;
-            BankId.ID = DepositId.GetUniqueIndividualNumber();
+            DepositId.ID = DepositId.GetUniqueIndividualNumber();
             ProcentDeposit = aprocentDeposit;
             ClosingDate = aClosingDate.Date;
             OpeningDate = aOpeningDate.Date;
