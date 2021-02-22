@@ -28,7 +28,7 @@ namespace StaffBankTerminalWPF.ViewModel
         public BankViewModel(IBank abank)
         {
             Bank = abank;
-            bankAccounts = new ObservableCollection<Account>((List<Account>)Bank.Accounts);//Temp
+            bankAccounts = new ObservableCollection<Account>(Account.ToAccounts(Bank.Accounts));//Temp
         }
 
 

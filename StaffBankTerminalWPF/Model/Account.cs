@@ -46,15 +46,14 @@ namespace StaffBankTerminalWPF.Model
         }
 
 
-        private string name;
         public string Name { 
             get
             {
-                return name;
+                return Client.Name;
             }
             set
             {
-                name = value;
+                Client.Name = value;///TODO Оставить так?
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
             }
         }
@@ -92,6 +91,27 @@ namespace StaffBankTerminalWPF.Model
 
         public Account()
         {
+        }
+
+
+        public static Account ToAccount(IBankAccount bankAccount)
+        {
+            var newAccount = new Account() { Client = bankAccount.Client,
+                                             Debt = bankAccount.Debt,
+                                             Money = bankAccount.Money,
+                                             Name = bankAccount.Name };
+            return newAccount;
+        }
+
+        public static List<Account> ToAccounts(ICollection<IBankAccount> bankAccountCollection)
+        {
+            var newAccountList = new List<Account>();
+            foreach (var bankAccount in bankAccountCollection)
+            {
+                newAccountList.Add(ToAccount(bankAccount));
+            }
+
+            return newAccountList;
         }
     }
 }

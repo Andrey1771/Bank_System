@@ -157,7 +157,8 @@ namespace BankLibrary
 
         public ICollection<IClient> Clients => throw new NotImplementedException();
 
-        public ICollection<IBankAccount> Accounts => throw new NotImplementedException();
+
+        public ICollection<IBankAccount> Accounts { get; private set; }
 
         public ICollection<ILoan> Loans => throw new NotImplementedException();
 
@@ -170,6 +171,7 @@ namespace BankLibrary
 
         public Bank(string pathToSaveLogs)
         {
+			Accounts = new List<IBankAccount>();///
 			_configuration = new Configuration();
 			legalDepartment = CreateLegalDepartment();
 			standartDepartment = CreateStandartDepartment();
