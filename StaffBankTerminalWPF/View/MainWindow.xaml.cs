@@ -29,7 +29,7 @@ namespace StaffBankTerminalWPF.View
         public MainWindow()
         {
             InitializeComponent();
-            Bank bank = new Bank("");
+            bank = new Bank("");
             DataContext = new BankViewModel(bank);
             
         }

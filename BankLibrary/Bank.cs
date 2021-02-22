@@ -9,7 +9,7 @@ using BankLibrary.DI.FutureDatabase;
 using System.Collections.Generic;
 
 
-using BankLibrary.BankAccountsObjects;//Нарушает DI паттерн temp
+//using BankLibrary.BankAccountsObjects;//Нарушает DI паттерн temp
 using BankLibrary.DI.Logger;
 
 namespace BankLibrary
@@ -82,22 +82,28 @@ namespace BankLibrary
 		//CreateClients
 
 
-		//CreateBankAccountObjects temp
+		//CreateBankAccountObjects
 		private static ICard CreateBankCard(string cardholderName, uint bim, int secretNumber, DateTime validDate = default(DateTime))
 		{
-			return new BankCard(cardholderName, bim, secretNumber, validDate);
+			var cardCreator = _configuration.Container.GetInstance<ICardCreator>();
+			
+			return cardCreator.CreateCard(cardholderName, bim, secretNumber, validDate);
 		}
 
 		private static IDeposit CreateBankDeposit(string ownerName, decimal procentDeposit, DateTime closingDate, DateTime openingDate = default(DateTime))
 		{
-			return new BankDeposit(ownerName, procentDeposit, closingDate, openingDate);
+			var depositCreator = _configuration.Container.GetInstance<IDepositCreator>();
+
+			return depositCreator.CreateDeposit(ownerName, procentDeposit, closingDate, openingDate);
 		}
 
 		private static ILoan CreateBankLoan(string ownerName, decimal procentLoan, DateTime closingDate, DateTime openingDate = default(DateTime))
 		{
-			return new BankLoan(ownerName, procentLoan, closingDate, openingDate);
+			var loanCreator = _configuration.Container.GetInstance<ILoanCreator>();
+
+			return loanCreator.CreateLoan(ownerName, procentLoan, closingDate, openingDate);
 		}
-		//CreateBankAccountObjects temp
+		//CreateBankAccountObjects
 
 		//CreateLogger
 		private static ILogger CreateLogger(string pathToFolderLogs)
@@ -159,11 +165,12 @@ namespace BankLibrary
 
         public ICollection<ICard> Cards => throw new NotImplementedException();
 
-        public ILogger Logger { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ILogger Logger { get; set; }/// TODO Добавить сохранение при смене 
         //public IFileController FileController { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Bank(string pathToSaveLogs)
         {
+			_configuration = new Configuration();
 			legalDepartment = CreateLegalDepartment();
 			standartDepartment = CreateStandartDepartment();
 			vipDepartment = CreateVipDepartment();

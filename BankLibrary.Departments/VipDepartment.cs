@@ -10,14 +10,14 @@ namespace BankLibrary.Departments
 {
     public class VipDepartment : HumanDepartment, IVipDepartment
     {
-        public VipDepartment(List<IBankAccount> bankAccounts = null, string aName = "VipDepartment") : base(bankAccounts == null ? new List<IBankAccount>() : bankAccounts, aName)
+        public VipDepartment() : base(new List<IBankAccount>(), "VipDepartment")
         {
 
         }
 
-        public VipDepartment(string aName = "VipDepartment") : this(new List<IBankAccount>(), aName)
+        /*public VipDepartment(string aName = "VipDepartment") : this(new List<IBankAccount>(), aName)
         {
 
-        }
+        }*/
     }
 }

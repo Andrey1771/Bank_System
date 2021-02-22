@@ -14,15 +14,14 @@ namespace BankLibrary.Departments
     public class LegalDepartment : Department, ILegalDepartment
     {
 
-        public LegalDepartment(List<IBankAccount> bankAccounts = null, string aName = "LegalDepartment") : base(bankAccounts == null ? new List<IBankAccount>() : bankAccounts, aName)
+        public LegalDepartment() : base(new List<IBankAccount>(), "LegalDepartment")
         {
-
             
         }
-        public LegalDepartment(string aName = "LegalDepartment") : this(new List<IBankAccount>(), aName)
+        /*public LegalDepartment(string aName = "LegalDepartment") : this(new List<IBankAccount>(), aName)
         {
 
-        }
+        }*/
 
 
         public void AddDeposit(IDeposit deposit, IClient client)

@@ -21,26 +21,5 @@ namespace BankLibrary.Accounts
         {
             Client = aclient;
         }
-
-       /* public void AddCard(uint bim, int secretNumber, DateTime validDate = default(DateTime))
-        {
-            var newCard = new BankCard(client.Name, bim, secretNumber, validDate);
-            bankCards.Add(newCard);
-        }
-
-        public void AddDeposit(decimal procentDeposit, int secretNumber,
-            DateTime closingDate, DateTime openingDate = default(DateTime))
-        {
-            var newDeposit = new BankDeposit(client.Name, procentDeposit, closingDate, openingDate);
-            bankDeposits.Add(newDeposit);
-        }
-
-        public void AddLoan(decimal procentDeposit,
-            DateTime closingDate, DateTime openingDate = default(DateTime))
-        {
-            var newLoan = new BankLoan(client.Name, procentDeposit, closingDate, openingDate);
-            bankLoans.Add(newLoan);
-        }*/
-
     }
 }
