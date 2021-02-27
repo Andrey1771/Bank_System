@@ -7,7 +7,7 @@ namespace BankLibrary.DI.FutureDatabase
 {
     public interface ILoan
     {
-        LoanId LoanId { get; set; }
+        LoanId LoanId { get; }
 
         string OwnerName { get; }
         DateTime OpeningDate { get; }

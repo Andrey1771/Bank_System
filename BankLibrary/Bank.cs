@@ -11,6 +11,9 @@ using System.Collections.Generic;
 
 //using BankLibrary.BankAccountsObjects;//Нарушает DI паттерн temp
 using BankLibrary.DI.Logger;
+using BankLibrary.DI.Operations;
+using System.Linq;
+using System.Collections;
 
 namespace BankLibrary
 {
@@ -122,34 +125,81 @@ namespace BankLibrary
 			return fileController;
 		}
 		//CreateFileController
+		//CreateBankAccountObjects
+		#endregion
 
 		public IClient GetClient(uint id)
         {
             throw new NotImplementedException();
         }
 
-        public IBankAccount GetAccount(IClient client)
-        {
-            throw new NotImplementedException();
+        public bool GetAccount(IClient client, out IBankAccount bankAccount)
+		{
+			return DepartmentForClient(client).FindClientAccount(client, out bankAccount);
         }
+
+		private IDepartment DepartmentForClient(IClient client)
+        {
+			if (client is IStandartClient)
+			{
+				return standartDepartment;
+			}
+			else if (client is IVipClient)
+			{
+				return vipDepartment;
+			}
+			else if (client is IOrganizationClient)
+            {
+				return legalDepartment;
+            }
+			else
+			{
+				throw new Exception("Client не соответствует ни одному департаменту");
+			}
+		}
 
         public bool AddCardToClientInDepartment(ICard card, IClient client)
         {
-            throw new NotImplementedException();
+			IAddCard addCardOperation;
+			if((addCardOperation = DepartmentForClient(client) as IAddCard) != null)
+			{
+				return addCardOperation.AddCard(card, client);
+			}
+
+			return false;
         }
 
         public bool AddLoanToClientInDepartment(ILoan loan, IClient client)
         {
-            throw new NotImplementedException();
-        }
+			IAddLoan addLoanOperation;
+			if ((addLoanOperation = DepartmentForClient(client) as IAddLoan) != null)
+			{
+				return addLoanOperation.AddLoan(loan, client);
+			}
+
+			return false;
+		}
 
         public bool AddDepositToClientInDepartment(IDeposit deposit, IClient client)
         {
-            throw new NotImplementedException();
-        }
+			IAddDeposit addDepositOperation;
+			if ((addDepositOperation = DepartmentForClient(client) as IAddDeposit) != null)
+			{
+				return addDepositOperation.AddDeposit(deposit, client);
+			}
 
-        //CreateBankAccountObjects
-        #endregion
+			return false;
+		}
+
+        public bool AddNewClientInDepartment(IClient client)
+        {
+			return DepartmentForClient(client).AddClientAccount(client);
+		}
+
+        public bool AddNewBankAccount(IBankAccount bankAccount)
+        {
+			return DepartmentForClient(bankAccount.Client).AddClientAccount(bankAccount);
+		}
 
         ILegalDepartment legalDepartment;
 		IStandartDepartment standartDepartment;
@@ -158,9 +208,24 @@ namespace BankLibrary
         public ICollection<IClient> Clients => throw new NotImplementedException();
 
 
-        public ICollection<IBankAccount> Accounts { get; private set; }
+        public ICollection<IBankAccount> Accounts 
+		{ 
+			get
+            {
+				return (ICollection<IBankAccount>)legalDepartment.Accounts.Concat(standartDepartment.Accounts).Concat(vipDepartment.Accounts);
+			}
+		}
 
-        public ICollection<ILoan> Loans => throw new NotImplementedException();
+		ICollection<ILoan> loans;
+        public ICollection<ILoan> Loans
+        {
+			get
+            {
+
+				return loans /*legalDepartment.Accounts.ElementAt(0).Debt*/;
+            }
+		}
+
 
         public ICollection<IDeposit> Deposits => throw new NotImplementedException();
 
@@ -171,12 +236,15 @@ namespace BankLibrary
 
         public Bank(string pathToSaveLogs)
         {
-			Accounts = new List<IBankAccount>();///
+			
+			//Accounts = new List<IBankAccount>();///
 			_configuration = new Configuration();
 			legalDepartment = CreateLegalDepartment();
 			standartDepartment = CreateStandartDepartment();
 			vipDepartment = CreateVipDepartment();
 			Logger = CreateLogger(pathToSaveLogs);
 		}
+
+
 	}
 }

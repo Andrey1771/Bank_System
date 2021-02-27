@@ -30,13 +30,19 @@ namespace StaffBankTerminalWPF.View
         {
             InitializeComponent();
             bank = new Bank("");
-            DataContext = new BankViewModel(bank);
+            var bankViewModel = new BankViewModel();
+            bankViewModel.Bank = bank;
+            DataContext = bankViewModel;
             
+            //dataListView.ItemsSource;
+            //dataListViewGridView.Columns.Add(new GridViewColumn().DisplayMemberBinding.StringFormat = "");
+
+
         }
 
         private void Load_Logs_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Save_Logs_Button_Click(object sender, RoutedEventArgs e)
@@ -73,5 +79,12 @@ namespace StaffBankTerminalWPF.View
         {
 
         }
+
+        private void dataComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
     }
 }

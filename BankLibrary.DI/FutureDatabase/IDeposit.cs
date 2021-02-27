@@ -7,7 +7,7 @@ namespace BankLibrary.DI.FutureDatabase
 {
     public interface IDeposit
     {
-        DepositId DepositId { get; set; }
+        DepositId DepositId { get; }
 
         string OwnerName { get; }
         DateTime OpeningDate { get; }

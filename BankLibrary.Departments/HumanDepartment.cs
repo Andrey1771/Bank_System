@@ -18,24 +18,45 @@ namespace BankLibrary.Departments
 
         }
 
-        public virtual void AddCard(ICard card, IClient client)
+        public virtual bool AddCard(ICard card, IClient client)
         {
-            FindCastToHumanAccount(client).AddCard(card);
+            IHumanAccount account; 
+            if (FindCastToHumanAccount(client, out account))
+            {
+                account.AddCard(card);
+                return true;
+            }
+            return false;
         }
 
-        public virtual void AddDeposit(IDeposit deposit, IClient client)
+        public virtual bool AddDeposit(IDeposit deposit, IClient client)
         {
-            FindCastToHumanAccount(client).AddDeposit(deposit);
+            IHumanAccount account;
+            if (FindCastToHumanAccount(client, out account))
+            {
+                account.AddDeposit(deposit);
+                return true;
+            }
+            return false;
         }
 
-        public virtual void AddLoan(ILoan loan, IClient client)
+        public virtual bool AddLoan(ILoan loan, IClient client)
         {
-            FindCastToHumanAccount(client).AddLoan(loan);
+            IHumanAccount account;
+
+            if(FindCastToHumanAccount(client, out account))
+            {
+                account.AddLoan(loan);
+                return true;
+            }
+            return false;
         }
 
-        protected virtual IHumanAccount FindCastToHumanAccount(IClient client)//TODO разделить логику
+        protected virtual bool FindCastToHumanAccount(IClient client, out IHumanAccount findedAccount)//TODO разделить логику
         {
+            findedAccount = null;
             IBankAccount iBankAccount = null;
+
             if (FindClientAccount(client, out iBankAccount))
             {
                 IHumanAccount iHumanAccount = null;
@@ -45,13 +66,12 @@ namespace BankLibrary.Departments
                 }
                 else
                 {
-                    return iHumanAccount;
+                    findedAccount = iHumanAccount;
+                    return true;
                 }
             }
-            else
-            {
-                throw new ArgumentException("Ошибка, не удалось найти данного пользователя");
-            }
+
+            return false;
         }
     }
 }

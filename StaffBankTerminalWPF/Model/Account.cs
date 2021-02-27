@@ -53,7 +53,13 @@ namespace StaffBankTerminalWPF.Model
             }
             set
             {
-                Client.Name = value;///TODO Оставить так?
+                if (Client == null)
+                {
+                    Console.WriteLine("Попытка установить значение Name у Client = null");
+                }
+                else
+                    Client.Name = value;///TODO Оставить так?
+
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
             }
         }

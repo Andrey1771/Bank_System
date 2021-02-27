@@ -14,10 +14,5 @@ namespace BankLibrary.Departments
         {
 
         }
-
-        /*public StandartDepartment(string aName = "StandartDepartment") : this(new List<IBankAccount>(), aName)
-        {
-
-        }*/
     }
 }

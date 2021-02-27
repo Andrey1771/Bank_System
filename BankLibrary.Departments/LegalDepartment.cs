@@ -18,24 +18,32 @@ namespace BankLibrary.Departments
         {
             
         }
-        /*public LegalDepartment(string aName = "LegalDepartment") : this(new List<IBankAccount>(), aName)
+
+        public bool AddDeposit(IDeposit deposit, IClient client)
         {
-
-        }*/
-
-
-        public void AddDeposit(IDeposit deposit, IClient client)
-        {
-            FindCastToOrganizationAccount(client).AddDeposit(deposit);
+            IOrganizationAccount account;
+            if (FindCastToOrganizationAccount(client, out account))
+            {
+                account.AddDeposit(deposit);
+                return true;
+            }
+            return false;
         }
 
-        public void AddLoan(ILoan loan, IClient client)
+        public bool AddLoan(ILoan loan, IClient client)
         {
-            FindCastToOrganizationAccount(client).AddLoan(loan);
+            IOrganizationAccount account;
+            if (FindCastToOrganizationAccount(client, out account))
+            {
+                account.AddLoan(loan);
+                return true;
+            }
+            return false;
         }
 
-        private IOrganizationAccount FindCastToOrganizationAccount(IClient client)//TODO Разделить логику
+        private bool FindCastToOrganizationAccount(IClient client, out IOrganizationAccount findedAccount)//TODO Разделить логику
         {
+            findedAccount = null;
             IBankAccount iBankAccount = null;
             if (FindClientAccount(client, out iBankAccount))
             {
@@ -46,13 +54,12 @@ namespace BankLibrary.Departments
                 }
                 else
                 {
-                    return iOrganizationAccount;
+                    findedAccount = iOrganizationAccount;
+                    return true;
                 }
             }
-            else
-            {
-                throw new ArgumentException("Ошибка, не удалось найти данного пользователя");
-            }
+
+            return false;
         }
     }
 

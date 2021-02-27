@@ -116,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BankLibrary.Client\BankLibrary.Client.csproj">
+      <Project>{1622f748-d200-4221-aef5-3ad660cc9581}</Project>
+      <Name>BankLibrary.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BankLibrary.DI\BankLibrary.DI.csproj">
       <Project>{e2f8208c-2b6a-48d1-8aca-1de170ac99f8}</Project>
       <Name>BankLibrary.DI</Name>

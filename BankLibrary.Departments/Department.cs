@@ -21,9 +21,13 @@ namespace BankLibrary.Departments
 
         public bool AddClientAccount(IClient client)
         {
-            var tempAccount = client.MakeAccount();
-            if (!Accounts.Contains(tempAccount))
-                Accounts.Add(tempAccount);
+            return AddClientAccount(client.MakeAccount());
+        }
+
+        public bool AddClientAccount(IBankAccount bankAccount)
+        {
+            if (!Accounts.Contains(bankAccount))
+                Accounts.Add(bankAccount);
             else
                 return false;
             return true;

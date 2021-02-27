@@ -7,16 +7,47 @@ using BankLibrary.DI.FutureDatabase;
 
 namespace BankLibrary.BankAccountsObjects
 {
-    public class BankDeposit : IDeposit
+    public class BankDeposit : IDeposit, IValueChanged
     {
-        public DepositId DepositId { get; set; }
+        public class BankDepositEventArgs : EventArgs
+        {
+            public enum TypeValue
+            {
+                Money, ProcentDeposit
+            }
+            public TypeValue ModifiedValue { get; private set; }
+            public object OldValue { get; private set; }
+            public BankDepositEventArgs(TypeValue modifiedValue, object oldValue)
+            {
+                ModifiedValue = modifiedValue;
+                OldValue = oldValue;
+            }
+        }
+
+        public DepositId DepositId { get; }
 
         public string OwnerName { get; }
         public DateTime OpeningDate { get; }
         public DateTime ClosingDate { get; }
-        public decimal Money { get; set; }
+        decimal money;
+        public decimal Money 
+        { 
+            get
+            {
+                return money;
+            }
+            set
+            {
+                var oldVal = money;
+                money = value;
+                ValueChanged?.Invoke(this, new BankDepositEventArgs(BankDepositEventArgs.TypeValue.Money, oldVal));
+            }
+        }
 
         decimal procentDeposit;
+
+        public event EventHandler ValueChanged;
+
         public decimal ProcentDeposit 
         {
             get
@@ -28,9 +59,10 @@ namespace BankLibrary.BankAccountsObjects
                 if (procentDeposit < 0)
                     value = 0;
 
+                var oldVal = procentDeposit;
                 procentDeposit = value;
+                ValueChanged?.Invoke(this, new BankDepositEventArgs(BankDepositEventArgs.TypeValue.ProcentDeposit, oldVal));
             }
-
         }
 
         public BankDeposit(string aOwnerName, decimal aprocentDeposit, DateTime aClosingDate, DateTime aOpeningDate = default(DateTime))
@@ -44,7 +76,6 @@ namespace BankLibrary.BankAccountsObjects
             {
                 OpeningDate = DateTime.Now.Date;
             }
-
         }
     }
 }

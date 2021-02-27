@@ -8,6 +8,6 @@ namespace BankLibrary.DI.Operations
 {
     public interface IAddCard
     {
-        void AddCard(ICard card, IClient client);
+        bool AddCard(ICard card, IClient client);
     }
 }

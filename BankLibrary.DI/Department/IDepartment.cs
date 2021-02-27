@@ -12,6 +12,7 @@ namespace BankLibrary.DI.Department
         ICollection<IBankAccount> Accounts { get; set; }
 
         bool AddClientAccount(IClient client);
+        bool AddClientAccount(IBankAccount bankAccount);
         bool RemoveClientAccount(IClient client);
         bool FindClientAccount(IClient client, out IBankAccount findedAccount);
     }

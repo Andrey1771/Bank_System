@@ -8,6 +8,6 @@ namespace BankLibrary.DI.Operations
 {
     public interface IAddDeposit
     {
-        void AddDeposit(IDeposit deposit, IClient client);
+        bool AddDeposit(IDeposit deposit, IClient client);
     }
 }

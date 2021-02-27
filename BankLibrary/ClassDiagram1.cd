@@ -11,9 +11,35 @@
   <Class Name="BankLibrary.Bank" Collapsed="true">
     <Position X="12" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAgAAAAAgAEAAAAEAAA=</HashCode>
+      <HashCode>AAAAAIAAgo4AEQADACEAiAIIgAEACACQAAECEUBAAAg=</HashCode>
       <FileName>Bank.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BankLibrary.Accounts.BankAccount" Collapsed="true">
+    <Position X="9.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BankLibrary.Accounts.BankAccountHuman" Collapsed="true">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BankLibrary.Accounts.BankAccountHumanCreator" Collapsed="true">
+    <Position X="13" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BankLibrary.Accounts.BankAccountOrganization" Collapsed="true">
+    <Position X="8.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BankLibrary.Accounts.BankAccountOrganizationCreator" Collapsed="true">
+    <Position X="14.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -23,13 +23,14 @@ namespace BankLibrary.DI
         //IFileController<> FileController { get; set; }//TODO Добавить реализацию для данных
 
         IClient GetClient(uint id);
-        IBankAccount GetAccount(IClient client);
+        bool GetAccount(IClient client, out IBankAccount bankAccount);
 
         bool AddCardToClientInDepartment(ICard card, IClient client);
         bool AddLoanToClientInDepartment(ILoan loan, IClient client);
         bool AddDepositToClientInDepartment(IDeposit deposit, IClient client);
 
-
+        bool AddNewClientInDepartment(IClient client);
+        bool AddNewBankAccount(IBankAccount bankAccount);
 
     }
 }
